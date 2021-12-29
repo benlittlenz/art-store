@@ -73,6 +73,7 @@ const SearchNavIcon = styled(SearchIcon)`
   width: 24px;
   height: 24px;
   padding-right: 8px;
+  color: #1f2937;
 
   @media (max-width: 768px) {
     display: none;
@@ -82,6 +83,7 @@ const SearchNavIcon = styled(SearchIcon)`
 const CartNavIcon = styled(ShoppingCartIcon)`
   width: 24px;
   height: 24px;
+  color: #1f2937;
 
   @media (max-width: 768px) {
     display: none;
