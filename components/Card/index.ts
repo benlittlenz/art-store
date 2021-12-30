@@ -11,12 +11,6 @@ export const ImageContainer = styled.div`
   @media (min-width: 1024px) {
     height: 20rem;
   }
-
-  // shadow 162533
-`;
-
-export const CardInfoWrapper = styled.div`
-
 `;
 
 export const CardInfoHeader = styled.h3`
@@ -41,15 +35,15 @@ export const CardPriceWrapper = styled.div`
 
   span {
     font-size: 1.2rem;
-    line-height: 1.25rem;
+    line-height: 1.15rem;
     color: #374151;
-    font-weight: 800;
+    font-weight: 600;
   }
 `;
 
 export const CardCheckout = styled(ShoppingCartIcon)`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   padding: 6px;
   font-weight: 700;
   color: white;
@@ -61,7 +55,7 @@ export const CardCheckout = styled(ShoppingCartIcon)`
 export const CardWrapper = styled.div`
   padding: 2rem 1.5rem;
   overflow: hidden;
-  width: 280px;
+  width: 300px;
   max-width: 42rem;
   border-radius: 5px;
 

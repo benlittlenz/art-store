@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {
   CardWrapper,
   ImageContainer,
-  CardInfoWrapper,
   CardInfoHeader,
   CardInfoDescription,
   CardPriceWrapper,
@@ -56,14 +55,14 @@ export function FeaturedProducts() {
                 height={300}
               />
             </ImageContainer>
-            <CardInfoWrapper>
+            <div>
               <CardInfoHeader>{feature.title}</CardInfoHeader>
               <CardInfoDescription>{feature.description}</CardInfoDescription>
               <CardPriceWrapper>
                 <span>{feature.price}</span>
                 <CardCheckout />
               </CardPriceWrapper>
-            </CardInfoWrapper>
+            </div>
           </CardWrapper>
         ))}
       </ProductsWrapper>
@@ -81,7 +80,7 @@ const ProductsWrapper = styled.div`
   margin-top: 1.5rem;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   column-gap: 5rem;
-  row-gap: 2.5rem;
+  row-gap: 1rem;
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
