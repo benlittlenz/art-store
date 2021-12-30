@@ -4,11 +4,13 @@ export const Button = styled.button`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  width: 12rem;
+  max-width: 21rem;
   background: transparent;
-  border: 0.1875rem solid #222;
+  border: 0.1875rem solid #111827;
   border-radius: 4px;
   margin: 0 1em;
-  padding: 0.50em 1.5em;
+  padding: 0.5em 2em;
   cursor: pointer;
 
   span {
@@ -22,5 +24,8 @@ export const Button = styled.button`
           `
         : ""};
   }
-`;
 
+  &:hover {
+    border: 0.1875rem solid #4b5563;
+  }
+`;

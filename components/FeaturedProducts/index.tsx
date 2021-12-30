@@ -8,6 +8,7 @@ import {
   CardPriceWrapper,
   CardCheckout,
 } from "../Card";
+import { Spacer } from "../Spacer";
 
 const featuredList = [
   {
@@ -43,10 +44,14 @@ const featuredList = [
 export function FeaturedProducts() {
   return (
     <Wrapper>
-      <Heading>Featured</Heading>
+      <HeadingWrapper>
+        <h1>Featured Art</h1>
+        <Spacer />
+      </HeadingWrapper>
+
       <ProductsWrapper>
-        {featuredList.map((feature) => (
-          <CardWrapper>
+        {featuredList.map((feature, index) => (
+          <CardWrapper key={index}>
             <ImageContainer>
               <Image
                 src={feature.image}
@@ -99,9 +104,12 @@ const ProductsWrapper = styled.div`
   }
 `;
 
-const Heading = styled.h1`
-  color: #161412;
-  font-size: 2rem;
-  letter-spacing: 0.75px;
-  font-weight: 500;
+const HeadingWrapper = styled.div`
+  padding: 0 1.6rem;
+  h1 {
+    color: #161412;
+    font-size: 2rem;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+  }
 `;
