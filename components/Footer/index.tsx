@@ -34,6 +34,8 @@ export function Footer() {
 }
 
 const FooterWrapper = styled.div`
+  /* position: absolute;
+  bottom: 0; */
   width: 100%;
   overflow: hidden;
   padding-bottom: 4rem;
