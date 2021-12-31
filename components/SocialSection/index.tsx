@@ -19,7 +19,12 @@ export function SocialSection() {
       <SocialWrapper>
         <SocialTextWrapper>
           <h2>Social Media</h2>
-          <p></p>
+          <p>
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suffered alteration in some form, by injected
+            humour, or randomised words which don't look even slightly
+            believable.
+          </p>
         </SocialTextWrapper>
         <SocialButtonsWrapper>
           <Button fontSize="1.25rem" width="16rem">
@@ -38,7 +43,7 @@ export function SocialSection() {
 
 const Wrapper = styled.div`
   background-color: #f3f4f6;
-  padding: 2rem 0;
+  padding: 2.8rem 0;
   overflow: hidden;
 `;
 
@@ -56,6 +61,12 @@ const SocialTextWrapper = styled.div`
     font-weight: 500;
     font-family: "Waterfall", cursive;
     padding: 1rem 0;
+  }
+
+  p {
+    width: 70%;
+    font-size: 1rem;
+    font-weight: 400;
   }
 `;
 

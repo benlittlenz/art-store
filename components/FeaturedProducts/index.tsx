@@ -45,7 +45,7 @@ export function FeaturedProducts() {
   return (
     <Wrapper>
       <HeadingWrapper>
-        <h1>Featured Art</h1>
+        <h2>Featured Art</h2>
         {/* <Spacer /> */}
       </HeadingWrapper>
 
@@ -106,10 +106,16 @@ const ProductsWrapper = styled.div`
 
 const HeadingWrapper = styled.div`
   padding: 0 1.6rem;
-  h1 {
-    color: #161412;
-    font-size: 2rem;
-    letter-spacing: 0.75px;
-    font-weight: 500;
+  h2 {
+    color: #1f2937;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+
+    @media (min-width: 640px) {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
   }
 `;

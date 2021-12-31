@@ -1,13 +1,13 @@
 import { Layout } from "../components/Layout";
 
-const AboutPage = () => {
+const ContactPage = () => {
   return (
     <div>
       <Layout>
-        <div>Shop page</div>
+        <div>Contact page</div>
       </Layout>
     </div>
   );
 };
 
-export default AboutPage;
+export default ContactPage;

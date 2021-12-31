@@ -7,7 +7,6 @@ import { social } from "./icons"
 export function Footer() {
   return (
     <FooterWrapper>
-      <FooterBorder />
       <Logo href="">
         <Image src="/eam-logo.png" width={141} height={115} />
       </Logo>
@@ -37,17 +36,10 @@ export function Footer() {
 const FooterWrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  background-color: #f3f4f6;
 `;
 
-const FooterBorder = styled.div`
-  display: flex;
-  justify-content: space-around;
-  height: 0.115rem;
-  background-color: #333333;
-  margin: 2.6rem auto;
-  opacity: 0.1;
-`;
 
 const Nav = styled.nav`
   display: flex;

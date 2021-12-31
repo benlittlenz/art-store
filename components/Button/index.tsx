@@ -33,5 +33,9 @@ export const Button = styled.button`
 
   &:hover {
     border: 0.1875rem solid #4b5563;
+
+    span {
+      font-weight: 500;
+    }
   }
 `;
