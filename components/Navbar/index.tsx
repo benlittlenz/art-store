@@ -1,12 +1,15 @@
 import { useState } from "react";
 import styled from 'styled-components';
 import { SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline";
+import Image from "next/image";
 
 export function Navbar() {
   const [openHamburger, setOpenHamburger] = useState(false);
   return (
     <Nav>
-      <Logo href="">Logo here</Logo>
+      <Logo href="">
+        <Image src="/eam-logo.png" width={141} height={115} />
+      </Logo>
       <Hamburger onClick={() => setOpenHamburger(!openHamburger)}>
         <span />
         <span />
@@ -57,7 +60,6 @@ const NavLink = styled.a`
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 0.75px;
-  font-family: Karla;
   font-style: normal;
   font-weight: 500;
   text-transform: uppercase;

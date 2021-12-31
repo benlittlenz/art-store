@@ -46,7 +46,7 @@ export function FeaturedProducts() {
     <Wrapper>
       <HeadingWrapper>
         <h1>Featured Art</h1>
-        <Spacer />
+        {/* <Spacer /> */}
       </HeadingWrapper>
 
       <ProductsWrapper>

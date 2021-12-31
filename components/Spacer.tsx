@@ -4,8 +4,8 @@ export const Spacer = styled.div`
   display: flex;
   justify-content: space-around;
   height: 0.125rem;
-  width: 100%;
+  max-width: 80rem;
   background-color: #333333;
-  margin: 1rem auto;
+  margin: 2.6rem auto;
   opacity: 0.2;
 `;

@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import Image from "next/image";
 import Head from "next/head";
-
-import { Button } from "../Button";
-import { Spacer } from "../Spacer";
 
 export function AboutSection() {
   return (
@@ -22,16 +18,6 @@ export function AboutSection() {
           <h3>Visual Artist & Gallerist</h3>
           <p>Auckland, New Zealand</p>
         </ArtistWrapper>
-        <SocialWrapper>
-          <Button fontSize="1.25rem">
-            <Image src="/facebook.svg" width={20} height={20} />
-            <span>Facebook</span>
-          </Button>
-          <Button fontSize="1.25rem">
-            <Image src="/facebook.svg" width={20} height={20} />
-            <span>Instagram</span>
-          </Button>
-        </SocialWrapper>
       </AboutWrapper>
     </SectionWrapper>
   );
@@ -44,15 +30,6 @@ const SectionWrapper = styled.div`
 `;
 
 const AboutWrapper = styled.div`
-  //  max-width: 80rem;
-  /* width: 100%;
-  margin: 0 auto; */
-`;
-
-const SocialWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 2rem;
 `;
 
 const ArtistWrapper = styled.div`

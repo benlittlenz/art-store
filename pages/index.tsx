@@ -1,18 +1,23 @@
-import Image from 'next/image';
-import Link from 'next/link'
-import { AboutSection } from '../components/AboutSection';
-import { Button } from "../components/Button";
-import { FeaturedProducts } from '../components/FeaturedProducts';
-import { Navbar } from '../components/Navbar'
-import { Spacer } from '../components/Spacer';
+import styled from "styled-components";
+
+import { AboutSection } from "../components/AboutSection";
+import { FeaturedProducts } from "../components/FeaturedProducts";
+import { SocialSection } from "../components/SocialSection";
+import { Navbar } from "../components/Navbar";
+import { Spacer } from "../components/Spacer";
+import { Footer } from "../components/Footer";
 
 const IndexPage = () => (
   <>
     <Navbar />
     <AboutSection />
+    <Spacer />
+    <SocialSection />
+    <Spacer />
     <FeaturedProducts />
-
+    <Footer />
   </>
 );
 
-export default IndexPage
+export default IndexPage;
+
