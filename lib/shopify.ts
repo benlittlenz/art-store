@@ -97,6 +97,13 @@ export async function getProduct(handle: string) {
           }
         }
       }
+      variants(first: 25) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
     }
   }
   `;
@@ -104,4 +111,23 @@ export async function getProduct(handle: string) {
   const response = await ShopifyData(query);
   console.log("RESPN", response)
   return response?.data?.product ?? [];
+}
+
+export async function createCheckout(id, quantity) {
+  const query = `
+    mutation {
+      checkoutCreate(input: {
+        lineItems: [{ variantId: "${id}", quantity: ${quantity}}]
+      }) {
+        checkout {
+          id
+          webUrl
+        }
+      }
+    }
+  `;
+
+  const response = await ShopifyData(query);
+
+  return response.data.checkoutCreate.checkout ?? [];
 }
