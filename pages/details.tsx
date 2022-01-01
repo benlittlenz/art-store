@@ -4,11 +4,9 @@ import { ProductInfo } from "../components/ProductInfo";
 const ShopPage = () => {
   return (
     <div>
-      <Layout>
         <div>
           <ProductInfo />
         </div>
-      </Layout>
     </div>
   );
 };

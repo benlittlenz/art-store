@@ -23,24 +23,25 @@ const productImages = [
   },
 ];
 
-export function GallerySection() {
+export function GallerySection({ images }) {
+  console.log("Images", images)
   const [active, setActive] = useState(0);
   return (
     <GalleryWrapper>
       <MainImage>
-        <Image src={productImages[active].src} layout="fill" />
+        <Image src={images[active].node.originalSrc} layout="fill" />
       </MainImage>
       <TabGroup>
         <ImageSelector>
           <TabList>
-            {productImages.map((image, index) => (
+            {images.map((image, index) => (
               <Tab
                 key={index}
                 onClick={() => setActive(index)}
                 isActive={index === active}
               >
                 <Image
-                  src={image.src}
+                  src={image.node.originalSrc}
                   width="100%"
                   height="100%"
                   // layout="responsive"

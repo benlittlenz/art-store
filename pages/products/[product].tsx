@@ -1,12 +1,13 @@
+import { ProductInfo } from "../../components/ProductInfo";
 import { getAllProducts, getProduct } from "../../lib/shopify"
 
 export default function ProductPage({ product }) {
   console.log("PRODUCT", product)
   return (
-    <div>
-      {product.title}
-    </div>
-  )
+    <>
+      <ProductInfo product={product} />
+    </>
+  );
 }
 
 export async function getStaticPaths() {

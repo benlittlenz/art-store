@@ -9,26 +9,24 @@ import { Layout } from "../components/Layout";
 import { getProductsInCollection } from "../lib/shopify";
 
 const IndexPage = ({ products }) => {
-  console.log("PRODUCTS", products)
+  console.log("PRODUCTS", products);
   return (
     <>
-      <Layout>
-        <AboutSection />
-        <Spacer />
-        <SocialSection />
-        <Spacer />
-        <FeaturedProducts products={products} />
-        <Spacer />
-        <Newsletter />
-      </Layout>
+      <AboutSection />
+      <Spacer />
+      <SocialSection />
+      <Spacer />
+      <FeaturedProducts products={products} />
+      <Spacer />
+      <Newsletter />
     </>
   );
-}
+};
 
 export default IndexPage;
 
 export async function getStaticProps() {
-  const products = await getProductsInCollection()
+  const products = await getProductsInCollection();
 
   return {
     props: { products },

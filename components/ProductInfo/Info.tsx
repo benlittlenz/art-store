@@ -4,24 +4,18 @@ import { LocationMarkerIcon, TruckIcon } from "@heroicons/react/outline";
 import { Button } from "../Button";
 import { Spacer } from "../Spacer";
 
-export function InfoSection() {
+export function InfoSection({ title, description }) {
   return (
     <ProductInfoWrapper>
       <main>
-        <ProductHeading>Wallowing Breeze</ProductHeading>
+        <ProductHeading>{title}</ProductHeading>
         <DescriptionWrapper>
           <Dimensions>
             <li>Oil on canvas</li>
             <li>Gallery wrap canvas</li>
             <li>600mm x 400mm</li>
           </Dimensions>
-          <Description>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words.
-          </Description>
+          <Description>{description}</Description>
         </DescriptionWrapper>
         <Spacer />
         <ProductPrice>$500.00</ProductPrice>
