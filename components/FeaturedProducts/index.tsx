@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
+import { numberFormat } from "../../lib/format";
 import {
   CardWrapper,
   ImageContainer,
@@ -41,7 +43,8 @@ const featuredList = [
   },
 ];
 
-export function FeaturedProducts() {
+export function FeaturedProducts({ products }) {
+
   return (
     <Wrapper>
       <HeadingWrapper>
@@ -50,21 +53,28 @@ export function FeaturedProducts() {
       </HeadingWrapper>
 
       <ProductsWrapper>
-        {featuredList.map((feature, index) => (
+        {products.map(({ node }, index) => (
           <CardWrapper key={index}>
             <ImageContainer>
               <Image
-                src={feature.image}
+                src={node.images.edges[0].node.originalSrc}
                 layout="fixed"
                 width={300}
                 height={300}
               />
             </ImageContainer>
             <div>
-              <CardInfoHeader>{feature.title}</CardInfoHeader>
-              <CardInfoDescription>{feature.description}</CardInfoDescription>
+              <Link href={node.handle}>
+                <CardInfoHeader>{node.title}</CardInfoHeader>
+              </Link>
+
+              <CardInfoDescription>{node.description}</CardInfoDescription>
               <CardPriceWrapper>
-                <span>{feature.price}</span>
+                <span>
+                  {numberFormat.format(
+                    node.priceRange.minVariantPrice.amount
+                  ) || ""}
+                </span>
                 <CardCheckout />
               </CardPriceWrapper>
             </div>
