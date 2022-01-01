@@ -1,9 +1,10 @@
-import { getAllProducts } from "../../lib/shopify"
+import { getAllProducts, getProduct } from "../../lib/shopify"
 
 export default function ProductPage({ product }) {
+  console.log("PRODUCT", product)
   return (
     <div>
-
+      {product.title}
     </div>
   )
 }
@@ -12,10 +13,10 @@ export async function getStaticPaths() {
   const products = await getAllProducts();
 
   const paths = products.map((item) => {
-    const handle = String(item.node.handle);
+    const product = String(item.node.handle);
 
     return {
-      params: {handle}
+      params: { product }
     }
   });
 
@@ -25,3 +26,13 @@ export async function getStaticPaths() {
   }
 }
 
+export async function getStaticProps({ params }) {
+  console.log("PARAMS", params)
+  const product = await getProduct(params.product);
+
+  return {
+    props: {
+      product
+    }
+  }
+}

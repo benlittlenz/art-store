@@ -64,7 +64,7 @@ export function FeaturedProducts({ products }) {
               />
             </ImageContainer>
             <div>
-              <Link href={node.handle}>
+              <Link href={`products/${node.handle}`}>
                 <CardInfoHeader>{node.title}</CardInfoHeader>
               </Link>
 
