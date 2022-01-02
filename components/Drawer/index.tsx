@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import { XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import { ProductCart } from "./Product";
+import { CartContext } from "../../context/shopContext";
+import { OrderTotal } from "./OrderTotal";
 
 const DrawerWrapper = styled.div`
   overflow: hidden;
@@ -30,7 +33,6 @@ const DrawerContentWrapper = styled.div`
   right: 0;
   padding-left: 2.5rem;
   max-width: 100%;
-
 `;
 
 const WidthWrapper = styled.div`
@@ -97,32 +99,42 @@ const CartWrapper = styled.div`
   margin-top: 2rem;
 `;
 export function Drawer({ open = true }) {
+  const { cart, cartDrawerOpen, setCartDrawerOpen } = useContext(CartContext);
+  console.log("cartDrawerOpen", cartDrawerOpen);
   return (
-    <DrawerWrapper open={open}>
-      <DrawerOverlay open={open}>
-        <DrawerContentWrapper>
-          <WidthWrapper>
-            <DrawerContent>
-              <DrawerBody>
-                <DrawerHeading>
-                  <h1>Shopping Cart</h1>
-                  <DrawerClose>
-                    <button
-                      type="button"
-                      onClick={() => console.log("closed clicked")}
-                    >
-                      <CloseIcon />
-                    </button>
-                  </DrawerClose>
-                </DrawerHeading>
-                <CartWrapper>
-                  <ProductCart />
-                </CartWrapper>
-              </DrawerBody>
-            </DrawerContent>
-          </WidthWrapper>
-        </DrawerContentWrapper>
-      </DrawerOverlay>
-    </DrawerWrapper>
+    <>
+      {cartDrawerOpen ? (
+        <DrawerWrapper open={open}>
+          <DrawerOverlay open={open}>
+            <DrawerContentWrapper>
+              <WidthWrapper>
+                <DrawerContent>
+                  <DrawerBody>
+                    <DrawerHeading>
+                      <h1>Shopping Cart</h1>
+                      <DrawerClose>
+                        <button
+                          type="button"
+                          onClick={() => setCartDrawerOpen(false)}
+                        >
+                          <CloseIcon />
+                        </button>
+                      </DrawerClose>
+                    </DrawerHeading>
+                    <CartWrapper>
+                      <ProductCart cart={cart} />
+                    </CartWrapper>
+                  </DrawerBody>
+                  {/* Footer sub total */}
+                  <OrderTotal />
+                </DrawerContent>
+              </WidthWrapper>
+            </DrawerContentWrapper>
+          </DrawerOverlay>
+        </DrawerWrapper>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }

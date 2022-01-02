@@ -5,6 +5,7 @@ const CartContext = createContext({} as any);
 
 export default function ShopProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
   const [checkout, setCheckout] = useState({
     id: "",
     webUrl: "",
@@ -69,6 +70,8 @@ export default function ShopProvider({ children }) {
     <CartContext.Provider
       value={{
         cart,
+        cartDrawerOpen,
+        setCartDrawerOpen,
         addToCart,
         url: checkout.webUrl,
       }}

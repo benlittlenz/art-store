@@ -97,6 +97,11 @@ export async function getProduct(handle: string) {
           }
         }
       }
+      priceRange {
+        minVariantPrice {
+          amount
+        }
+      }
       variants(first: 25) {
         edges {
           node {

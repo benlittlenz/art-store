@@ -6,17 +6,19 @@ import Image from "next/image";
 import { SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { CartContext } from "../../context/shopContext";
+import { Drawer } from "../Drawer";
 
 export function Navbar() {
   const router = useRouter();
 
-  const { cart } = useContext(CartContext)
+  const { cart, cartDrawerOpen, setCartDrawerOpen } = useContext(CartContext);
 
   const [pathName, setPathName] = useState(router.pathname);
   const [openHamburger, setOpenHamburger] = useState(false);
 
   let cartQuantity = 0;
   cart.map(item => cartQuantity += item?.variantQuantity)
+
   return (
     <NavWrapper>
       <DeliveryBanner>
@@ -52,10 +54,15 @@ export function Navbar() {
               Contact
             </StyledLink>
           </Link>
-          <SearchNavIcon />
-          <CartNavIcon />
-          Cart ({cartQuantity})
+          <CartButton
+            type="button"
+            onClick={() => setCartDrawerOpen(!cartDrawerOpen)}
+          >
+            <CartNavIcon />
+            <span>Cart ({cartQuantity})</span>
+          </CartButton>
         </Menu>
+        <Drawer />
       </Nav>
     </NavWrapper>
   );
@@ -180,4 +187,15 @@ const Logo = styled.a`
   text-decoration: none;
   font-weight: 700;
   font-size: 1.5rem;
+`;
+
+const CartButton = styled.button`
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  span {
+    font-size: 1rem;
+  }
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { numberFormat } from "../../lib/format";
 
 const ProductList = styled.ul`
   margin-top: -1.2rem;
@@ -82,30 +83,33 @@ const RemoveWrapper = styled.div`
   }
 `;
 
-export function ProductCart() {
+export function ProductCart({ cart }) {
+  console.log('cart', cart)
   return (
     <ProductList role="list">
-      <Product>
-        <ImageWrapper>
-          <Image src="/painting.png" width={100} height={100} />
-        </ImageWrapper>
-        <ProductInfoWrapper>
-          <div>
-            <ProductInfo>
-              <h3>The Vonnergut</h3>
-              <p>$500.00</p>
-            </ProductInfo>
-            <ProductVariant>600mm x 400mm</ProductVariant>
-          </div>
-          <QuantityWrapper>
-            <p>Qty 5</p>
+      {cart.map((product, index) => (
+        <Product key={product.id}>
+          <ImageWrapper>
+            <Image src="/painting.png" width={100} height={100} />
+          </ImageWrapper>
+          <ProductInfoWrapper>
+            <div>
+              <ProductInfo>
+                <h3>{product.title}</h3>
+                <p>{numberFormat.format(product.price)}</p>
+              </ProductInfo>
+              <ProductVariant>600mm x 400mm</ProductVariant>
+            </div>
+            <QuantityWrapper>
+              <p>Qty {product.variantQuantity}</p>
 
-            <RemoveWrapper>
-              <button type="button">Remove</button>
-            </RemoveWrapper>
-          </QuantityWrapper>
-        </ProductInfoWrapper>
-      </Product>
+              <RemoveWrapper>
+                <button type="button">Remove</button>
+              </RemoveWrapper>
+            </QuantityWrapper>
+          </ProductInfoWrapper>
+        </Product>
+      ))}
     </ProductList>
   );
 }

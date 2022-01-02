@@ -39,6 +39,8 @@ export function InfoSection({ product }) {
           handle: product.handle,
           title: product.title,
           description: product.description,
+          image: product.images?.edges?.[0]?.node,
+          price: product.priceRange.minVariantPrice.amount,
           variantQuantity: 1
         })}>Add To Cart</AddCart>
       </main>
