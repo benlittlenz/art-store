@@ -24,7 +24,6 @@ const productImages = [
 ];
 
 export function GallerySection({ images }) {
-  console.log("Images", images)
   const [active, setActive] = useState(0);
   return (
     <GalleryWrapper>

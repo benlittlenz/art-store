@@ -76,7 +76,7 @@ const ContinueShopping = styled.div`
   }
 `;
 
-export function OrderTotal() {
+export function OrderTotal({ setCartDrawerOpen }) {
   return (
     <OrderWrapper>
       <PriceWrapper>
@@ -89,7 +89,7 @@ export function OrderTotal() {
         <ContinueShopping>
           <p>
             or{" "}
-            <button type="button">
+            <button type="button" onClick={() => setCartDrawerOpen(false)}>
               Continue Shopping<span aria-hidden="true"> &rarr;</span>
             </button>
           </p>

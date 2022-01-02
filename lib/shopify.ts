@@ -81,7 +81,6 @@ export async function getAllProducts() {
 }
 
 export async function getProduct(handle: string) {
-  console.log("HANDLE", handle)
   const query = `
   {
     product(handle: "${handle}") {
@@ -114,7 +113,6 @@ export async function getProduct(handle: string) {
   `;
 
   const response = await ShopifyData(query);
-  console.log("RESPN", response)
   return response?.data?.product ?? [];
 }
 

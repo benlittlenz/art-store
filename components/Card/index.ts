@@ -31,7 +31,7 @@ export const CardPriceWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  visibility: hidden;
+  visibility: ${(props) => (!props.hoverable ? "visible" : "hidden")};
 
   span {
     font-size: 1.2rem;
@@ -66,7 +66,7 @@ export const CardWrapper = styled.div`
   &:hover {
     ${CardPriceWrapper} {
       visibility: visible;
-      margin-top: 20px;
+      // margin-top: 20px;
     }
   }
 

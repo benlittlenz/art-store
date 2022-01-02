@@ -9,7 +9,6 @@ import { Layout } from "../components/Layout";
 import { getProductsInCollection } from "../lib/shopify";
 
 const IndexPage = ({ products }) => {
-  console.log("PRODUCTS", products);
   return (
     <>
       <AboutSection />

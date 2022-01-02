@@ -8,7 +8,6 @@ import { CartContext } from "../../context/shopContext";
 
 export function InfoSection({ product }) {
   const { addToCart } = useContext(CartContext);
-  console.log("product", product)
   return (
     <ProductInfoWrapper>
       <main>

@@ -84,7 +84,6 @@ const RemoveWrapper = styled.div`
 `;
 
 export function ProductCart({ cart }) {
-  console.log('cart', cart)
   return (
     <ProductList role="list">
       {cart.map((product, index) => (

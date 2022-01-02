@@ -2,7 +2,6 @@ import { ProductInfo } from "../../components/ProductInfo";
 import { getAllProducts, getProduct } from "../../lib/shopify"
 
 export default function ProductPage({ product }) {
-  console.log("PRODUCT", product)
   return (
     <>
       <ProductInfo product={product} />
@@ -28,7 +27,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("PARAMS", params)
   const product = await getProduct(params.product);
 
   return {

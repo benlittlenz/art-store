@@ -10,6 +10,7 @@ import {
   CardPriceWrapper,
   CardCheckout,
 } from "../Card";
+import { Products } from "../Products";
 import { Spacer } from "../Spacer";
 
 const featuredList = [
@@ -51,36 +52,7 @@ export function FeaturedProducts({ products }) {
         <h2>Featured Art</h2>
         {/* <Spacer /> */}
       </HeadingWrapper>
-
-      <ProductsWrapper>
-        {products.map(({ node }, index) => (
-          <CardWrapper key={index}>
-            <ImageContainer>
-              <Image
-                src={node.images.edges[0].node.originalSrc}
-                layout="fixed"
-                width={300}
-                height={300}
-              />
-            </ImageContainer>
-            <div>
-              <Link href={`products/${node.handle}`}>
-                <CardInfoHeader>{node.title}</CardInfoHeader>
-              </Link>
-
-              <CardInfoDescription>{node.description}</CardInfoDescription>
-              <CardPriceWrapper>
-                <span>
-                  {numberFormat.format(
-                    node.priceRange.minVariantPrice.amount
-                  ) || ""}
-                </span>
-                <CardCheckout />
-              </CardPriceWrapper>
-            </div>
-          </CardWrapper>
-        ))}
-      </ProductsWrapper>
+      <Products products={products}/>
     </Wrapper>
   );
 }
