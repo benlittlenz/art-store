@@ -10,10 +10,9 @@ import { Drawer } from "../Drawer";
 
 export function Navbar() {
   const router = useRouter();
-
+  console.log("PATH", router.pathname)
   const { cart, cartDrawerOpen, setCartDrawerOpen } = useContext(CartContext);
 
-  const [pathName, setPathName] = useState(router.pathname);
   const [openHamburger, setOpenHamburger] = useState(false);
 
   let cartQuantity = 0;
@@ -35,24 +34,16 @@ export function Navbar() {
         </Hamburger>
         <Menu hamburgerOpen={openHamburger}>
           <Link href="/" passHref>
-            <StyledLink onClick={setPathName} pathname={pathName}>
-              Home
-            </StyledLink>
+            <StyledLink pathname={router.pathname}>Home</StyledLink>
           </Link>
           <Link href="/shop" passHref>
-            <StyledLink onClick={setPathName} pathname={pathName}>
-              Shop
-            </StyledLink>
+            <StyledLink pathname={router.pathname}>Shop</StyledLink>
           </Link>
           <Link href="/about" passHref>
-            <StyledLink onClick={setPathName} pathname={pathName}>
-              About
-            </StyledLink>
+            <StyledLink pathname={router.pathname}>About</StyledLink>
           </Link>
           <Link href="/contact" passHref>
-            <StyledLink onClick={setPathName} pathname={pathName}>
-              Contact
-            </StyledLink>
+            <StyledLink pathname={router.pathname}>Contact</StyledLink>
           </Link>
           <CartButton
             type="button"
@@ -133,7 +124,10 @@ const StyledLink = styled.a`
   font-style: normal;
   font-weight: 500;
   text-transform: uppercase;
-  color: ${(props) => (props.href === props.pathname ? "#6366f1" : "#1f2937")};
+  color: ${(props) => {
+    console.log("PROPS", props)
+    return props.href === props.pathname ? "#6366f1" : "#1f2937";
+  }};
   border-bottom: ${(props) =>
     props.href === props.pathname
       ? "2px solid #a5b4fc"

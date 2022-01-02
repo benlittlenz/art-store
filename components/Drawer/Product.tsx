@@ -83,10 +83,10 @@ const RemoveWrapper = styled.div`
   }
 `;
 
-export function ProductCart({ cart }) {
+export function ProductCart({ cart, removeCartItem }) {
   return (
     <ProductList role="list">
-      {cart.map((product, index) => (
+      {cart.map((product) => (
         <Product key={product.id}>
           <ImageWrapper>
             <Image src="/painting.png" width={100} height={100} />
@@ -103,7 +103,9 @@ export function ProductCart({ cart }) {
               <p>Qty {product.variantQuantity}</p>
 
               <RemoveWrapper>
-                <button type="button">Remove</button>
+                <button type="button" onClick={() => removeCartItem(product.id)}>
+                  Remove
+                </button>
               </RemoveWrapper>
             </QuantityWrapper>
           </ProductInfoWrapper>

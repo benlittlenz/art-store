@@ -109,7 +109,8 @@ const CartWrapper = styled.div`
 `;
 
 export function Drawer() {
-  const { cart, cartDrawerOpen, setCartDrawerOpen } = useContext(CartContext);
+  const { cart, cartDrawerOpen, setCartDrawerOpen, removeCartItem } =
+    useContext(CartContext);
   return (
     <DrawerWrapper open={cartDrawerOpen}>
       <DrawerOverlay open={cartDrawerOpen}>
@@ -129,7 +130,7 @@ export function Drawer() {
                   </DrawerClose>
                 </DrawerHeading>
                 <CartWrapper>
-                  <ProductCart cart={cart} />
+                  <ProductCart cart={cart} removeCartItem={removeCartItem} />
                 </CartWrapper>
               </DrawerBody>
               {/* Footer sub total */}
