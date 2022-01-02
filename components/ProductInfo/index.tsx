@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Drawer } from "../Drawer";
 import { GallerySection } from "./Gallery";
 import { InfoSection } from "./Info";
 
@@ -11,7 +12,8 @@ export function ProductInfo({ product }) {
         <GallerySection images={images.edges} />
       </SectionWrapper>
 
-      <InfoSection title={title} description={description} />
+      <InfoSection product={product} />
+      <Drawer open />
     </ProductInfoWrapper>
   );
 }

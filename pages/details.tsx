@@ -1,11 +1,10 @@
-import { Layout } from "../components/Layout";
-import { ProductInfo } from "../components/ProductInfo";
+import { Drawer } from "../components/Drawer";
 
 const ShopPage = () => {
   return (
     <div>
         <div>
-          <ProductInfo />
+          <Drawer />
         </div>
     </div>
   );

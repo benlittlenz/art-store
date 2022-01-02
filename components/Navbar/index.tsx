@@ -1,16 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
 import { SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import { CartContext } from "../../context/shopContext";
 
 export function Navbar() {
   const router = useRouter();
 
+  const { cart } = useContext(CartContext)
+
   const [pathName, setPathName] = useState(router.pathname);
   const [openHamburger, setOpenHamburger] = useState(false);
+
+  let cartQuantity = 0;
+  cart.map(item => cartQuantity += item?.variantQuantity)
   return (
     <NavWrapper>
       <DeliveryBanner>
@@ -48,6 +54,7 @@ export function Navbar() {
           </Link>
           <SearchNavIcon />
           <CartNavIcon />
+          Cart ({cartQuantity})
         </Menu>
       </Nav>
     </NavWrapper>

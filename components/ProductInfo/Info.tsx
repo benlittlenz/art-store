@@ -1,21 +1,25 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import { LocationMarkerIcon, TruckIcon } from "@heroicons/react/outline";
 
 import { Button } from "../Button";
 import { Spacer } from "../Spacer";
+import { CartContext } from "../../context/shopContext";
 
-export function InfoSection({ title, description }) {
+export function InfoSection({ product }) {
+  const { addToCart } = useContext(CartContext);
+  console.log("product", product)
   return (
     <ProductInfoWrapper>
       <main>
-        <ProductHeading>{title}</ProductHeading>
+        <ProductHeading>{product.title}</ProductHeading>
         <DescriptionWrapper>
           <Dimensions>
             <li>Oil on canvas</li>
             <li>Gallery wrap canvas</li>
             <li>600mm x 400mm</li>
           </Dimensions>
-          <Description>{description}</Description>
+          <Description>{product.description}</Description>
         </DescriptionWrapper>
         <Spacer />
         <ProductPrice>$500.00</ProductPrice>
@@ -30,7 +34,13 @@ export function InfoSection({ title, description }) {
             <p>Estimated delivery 3-7 days within New Zealand</p>
           </div>
         </ShippingDetails>
-        <AddCart type="Submit">Add To Cart</AddCart>
+        <AddCart type="button" onClick={() => addToCart({
+          id: product.variants.edges[0].node.id,
+          handle: product.handle,
+          title: product.title,
+          description: product.description,
+          variantQuantity: 1
+        })}>Add To Cart</AddCart>
       </main>
     </ProductInfoWrapper>
   );
