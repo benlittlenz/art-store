@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { XIcon } from "@heroicons/react/outline";
+import Image from "next/image";
+import { ProductCart } from "./Product";
 
 const DrawerWrapper = styled.div`
   overflow: hidden;
@@ -91,6 +93,9 @@ const CloseIcon = styled(XIcon)`
   // margin-right: 4px;
 `;
 
+const CartWrapper = styled.div`
+  margin-top: 2rem;
+`;
 export function Drawer({ open = true }) {
   return (
     <DrawerWrapper open={open}>
@@ -102,11 +107,17 @@ export function Drawer({ open = true }) {
                 <DrawerHeading>
                   <h1>Shopping Cart</h1>
                   <DrawerClose>
-                    <button type="button" onClick={() => console.log("closed clicked")}>
+                    <button
+                      type="button"
+                      onClick={() => console.log("closed clicked")}
+                    >
                       <CloseIcon />
                     </button>
                   </DrawerClose>
                 </DrawerHeading>
+                <CartWrapper>
+                  <ProductCart />
+                </CartWrapper>
               </DrawerBody>
             </DrawerContent>
           </WidthWrapper>
